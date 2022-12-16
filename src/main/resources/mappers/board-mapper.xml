@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Board">
+    <insert id="insertBoard">
+        insert into Pray (churchname, isjoined, pray, thanks, song, s_range) values
+        (#{churchname} , #{isjoined} , #{pray},#{thanks},#{song},#{s_range})
+    </insert>
+    <update id="updateBoard">
+        update Pray set churchname=#{churchname}, isjoined=#{isjoined}, pray=#{pray}, thanks=#{thanks},song=#{song}, s_range=#{s_range} where sid=#{sid}
+    </update>
+    <delete id="deleteBoard">
+        delete from Pray where sid=#{sid}
+    </delete>
+    <select id="getBoard" resultType="board">
+        select * from Pray where sid=#{sid}
+    </select>
+    <select id="getBoardList" resultType="board">
+        select * from Pray order by sid desc
+    </select> </mapper>
